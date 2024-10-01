@@ -11,4 +11,8 @@ public class MessageService2 {
 	public Message getMessage(Integer id) {
 		return messageMapper2.getMessage(id);
 	}
+	
+	public void insertMessage(Message message) {
+		messageMapper2.insertMessage(message);
+	}
 }

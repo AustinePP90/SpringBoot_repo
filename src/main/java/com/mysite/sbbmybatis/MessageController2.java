@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -17,5 +18,16 @@ public class MessageController2 {
 	@ResponseBody
 	public Message getMessage(@PathVariable("id") Integer id) {
 		return messageService2.getMessage(id);
+	}
+	
+	@GetMapping("/insert")
+	public String insert() {
+		return "create-message";
+	}
+	
+	@PostMapping
+	@ResponseBody
+	public void insertMessage(Message message) {
+		messageService2.insertMessage(message);
 	}
 }
