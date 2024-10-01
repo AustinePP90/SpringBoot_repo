@@ -1,5 +1,7 @@
 package com.mysite.sbbmybatis;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,17 @@ public class MessageController2 {
 	@GetMapping("/insert")
 	public String insert() {
 		return "create-message";
+	}
+	
+	@GetMapping("/api")
+	@ResponseBody
+	public List<Message> getMessageList() {
+		return messageService2.getMessageList();
+	}
+	
+	@GetMapping
+	public String messageList() {
+		return "messages";
 	}
 	
 	@PostMapping

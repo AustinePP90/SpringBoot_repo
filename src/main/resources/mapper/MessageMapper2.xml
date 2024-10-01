@@ -7,4 +7,7 @@
 	<insert id="insertMessage" parameterType="com.mysite.sbbmybatis.Message">
 		INSERT INTO hello (message) VALUES (#{message})
 	</insert>
+		<select id="getMessageList" resultType="com.mysite.sbbmybatis.Message">
+		SELECT id, message FROM hello ORDER BY id DESC LIMIT 10
+	</select>
 </mapper>

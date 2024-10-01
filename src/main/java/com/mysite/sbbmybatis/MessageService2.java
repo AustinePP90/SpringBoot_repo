@@ -1,5 +1,7 @@
 package com.mysite.sbbmybatis;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,9 @@ public class MessageService2 {
 	
 	public void insertMessage(Message message) {
 		messageMapper2.insertMessage(message);
+	}
+	
+	public List<Message> getMessageList() {
+		return messageMapper2.getMessageList();
 	}
 }
