@@ -12,4 +12,8 @@
 	<select id="getMessagesLimit10" resultType="com.mysite.sbbmybatis.Message">
 		SELECT id, message FROM hello ORDER BY id DESC LIMIT 10;
 	</select>
+	
+	<select id="" resultType="com.mysite.sbbmybatis.Message">
+		SELECT id, message FROM hello ORDER BY id DESC LIMIT 10 OFFSET #{offset};
+	</select>
 </mapper>
