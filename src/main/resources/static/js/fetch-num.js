@@ -1,8 +1,8 @@
 document.getElementById('numForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const num = {
-        message: document.getElementById('num_id').value,
+    const number = {
+        num: document.getElementById('num_id').value,
     };
 
     fetch('/hello', {
@@ -10,7 +10,7 @@ document.getElementById('numForm').addEventListener('submit', function(e) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(num)
+        body: JSON.stringify(number)
     })
     .then(response => {
         if (response.ok) {

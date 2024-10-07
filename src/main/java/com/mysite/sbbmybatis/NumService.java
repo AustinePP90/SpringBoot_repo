@@ -12,7 +12,7 @@ public class NumService {
 		return mapper.getNum(id);
 	}
 	
-	public void inputNum(Numbers num) {
-		mapper.inputNum(num);
+	public void inputNum(Numbers number) {
+		mapper.inputNum(number);
 	}
 }

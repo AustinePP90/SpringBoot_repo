@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface NumMapper {
 	Numbers getNum(int id);
 	
-	void inputNum(Numbers num);
+	void inputNum(Numbers number);
 }

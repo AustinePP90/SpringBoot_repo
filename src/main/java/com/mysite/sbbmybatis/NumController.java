@@ -34,7 +34,7 @@ public class NumController {
     
     @PostMapping
     @ResponseBody
-    public void inputNum(@RequestBody Numbers num) {
-    	service.inputNum(num);
+    public void inputNum(@RequestBody Numbers number) {
+    	service.inputNum(number);
     }
 }
