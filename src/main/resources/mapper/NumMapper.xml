@@ -4,4 +4,7 @@
     <select id="getNum" resultType="com.mysite.sbbmybatis.Numbers">
         SELECT * FROM nums WHERE id = #{id}
     </select>
+	<insert id="inputNum" parameterType="com.mysite.sbbmybatis.Numbers">
+		INSERT INTO nums (num) VALUES (#{num});
+	</insert>    
 </mapper>

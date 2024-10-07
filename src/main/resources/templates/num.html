@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUM</title>
+</head>
+<body>
+	<div class="container">
+		<h1>숫자 입력</h1>
+		<form id="numForm" th:action="@{/hello}" method="post">
+			<label for="num">숫자:</label>
+			<input type=text id="num_id" name="num" required/>
+			<button type="submit">숫자 입력</button>
+		</form>
+	</div>
+	<script th:src="@{/js/fetch-num.js}"></script>
+</body>
+</html>

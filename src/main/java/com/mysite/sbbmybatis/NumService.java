@@ -11,4 +11,8 @@ public class NumService {
 	public Numbers getNum(int id) {
 		return mapper.getNum(id);
 	}
+	
+	public void inputNum(Numbers num) {
+		mapper.inputNum(num);
+	}
 }
