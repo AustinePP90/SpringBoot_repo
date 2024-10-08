@@ -20,6 +20,6 @@ public class UserController {
     @GetMapping("/user/yang")
 //    @ResponseBody
     public String getUser() {
-    	return "detail";
+    	return "/user/detail";
     }
 }
