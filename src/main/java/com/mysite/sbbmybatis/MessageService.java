@@ -22,4 +22,13 @@ public class MessageService {
 	public List<Message> getMessagesLimit10() {
 		return messageMapper.getMessagesLimit10();
 	}
+	
+	public PageDTO getPagedData(int page, int size) {
+		int offset = (page - 1) * size;
+        List<Message> content = messageMapper.getMessagesWithPaging(offset, size);
+        int totalElements = messageMapper.countTotal();
+        int totalPages = (int) Math.ceil((double) totalElements / size);
+
+        return new PageDTO(page, size, totalPages, totalElements, content);
+	}
 }

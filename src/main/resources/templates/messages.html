@@ -11,13 +11,26 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<!--  비어 있는 messages div -->
 	<h1>Messages List</h1>
 	<div id="loading_id" class="loading">Loading...</div>
 	<div id="error_id" class="error">fetching 과정에서 오류가 발생했습니다.</div>
 	<ul id="messageList_id"></ul>
-	<!-- 자바스크립트로 fetch를 이용해 /messages/api 결과를 위 div에 담는다. -->
-	
+
+	<nav aria-label="Page navigation">
+		<ul class="pagination">
+			<li class="page-item" th:classappend="${pageData.page == 1} ? 'disabled'">
+				<a class="page-link" th:href="@{/messages(page=${pageData.page - 1}, size=${pageData.size})}">Previous</a>
+			</li>
+			<li class="page-item" th:each="pageNum : ${#numbers.sequence(1, pageData.totalPages)}" 
+				th:classappend="${pageNum == pageData.page} ? 'active'">
+				<a class="page-link" th:href="@{/messages(page=${pageNum}, size=${pageData.size})}" th:text="${pageNum}"></a>
+			</li>
+			<li class="page-item" th:classappend="${pageData.page == pageData.totalPages} ? 'disabled'">
+				<a class="page-link" th:href="@{/messages(page=${pageData.page + 1}, size=${pageData.size})}">Next</a>
+			</li>
+		</ul>
+	</nav>
+
 	<script th:src="@{/js/utils.js}"></script>
 	<script th:src="@{/js/fetch-messages.js}"></script>
 	<script

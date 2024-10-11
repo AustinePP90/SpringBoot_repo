@@ -13,7 +13,11 @@
 		SELECT id, message FROM hello ORDER BY id DESC LIMIT 10;
 	</select>
 	
-	<select id="" resultType="com.mysite.sbbmybatis.Message">
-		SELECT id, message FROM hello ORDER BY id DESC LIMIT 10 OFFSET #{offset};
-	</select>
+	 <select id="getMessagesWithPaging" resultType="com.mysite.sbbmybatis.Message">
+        SELECT * FROM hello ORDER BY id DESC LIMIT #{size} OFFSET #{offset};
+    </select>
+    
+    <select id="countTotal" resultType="Integer">
+    	SELECT COUNT(*) FROM hello;
+    </select>
 </mapper>
