@@ -20,4 +20,9 @@ public class HelloController {
     public String bye() {
     	return "Hello World... Bye";
     }
+    
+	@GetMapping("/")
+	public String home() {
+		return "home";
+	}
 }

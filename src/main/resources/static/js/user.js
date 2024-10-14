@@ -2,9 +2,10 @@ document.getElementById('loginForm_id').addEventListener('submit', function(e) {
 	e.preventDefault();
 
 	const user = {
-		username: document.getElementById('username_id').value,
+		usrname: document.getElementById('username_id').value,
 		psw: document.getElementById('password_id').value,
 	};
+	
 	fetch('/user/login', {
 		method: 'POST',
 		headers: {
@@ -13,15 +14,23 @@ document.getElementById('loginForm_id').addEventListener('submit', function(e) {
 		body: JSON.stringify(user)
 	})
 		.then(response => {
-			if (response.ok) {
-				alert('로그인 성공!!!');
-				document.getElementById('loginForm_id').reset();
+			return response.json().then(data => ({
+				status: response.status,
+				data: data
+			}))
+		})
+		.then(({ status, data }) => {
+			if (status === 200) {
+				alert('로그인에 성공했습니다.');
+				//document.getElementById('messageForm').reset();
+				window.location.href = '/';
 			} else {
-				alert('로그인 실패!!!');
+				//alert(data.message);
+				throw new Error(data.message);
 			}
 		})
 		.catch(error => {
 			console.error('Error:', error);
-			alert('오류가 발생했습니다.');
+			alert(error.message || '로그인에 실패했습니다.')
 		});
 });

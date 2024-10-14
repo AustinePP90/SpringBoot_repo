@@ -4,4 +4,7 @@
     <select id="getUserByUsername" resultType="com.mysite.sbbmybatis.User">
         SELECT id, usrname, created_at FROM users WHERE usrname = #{username};
     </select>
+      <select id="getUserPswByUsername" resultType="com.mysite.sbbmybatis.User">
+        SELECT id, usrname, psw FROM users WHERE usrname = #{username};
+    </select>
 </mapper>
