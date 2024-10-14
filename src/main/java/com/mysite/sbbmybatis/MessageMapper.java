@@ -14,5 +14,5 @@ public interface MessageMapper {
 	List<Message> getMessagesLimit10(); // return 값이 하나가 아님 -> List<>사용 -> <Message>타입만 사용하겠다!
 	
 	List<Message> getMessagesWithPaging(@Param("size") Integer size, @Param("offset") Integer offset);
-	int countTotal();
+	Integer countTotal();
 }

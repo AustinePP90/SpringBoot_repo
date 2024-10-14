@@ -15,7 +15,11 @@
 	<div id="loading_id" class="loading">Loading...</div>
 	<div id="error_id" class="error">fetching 과정에서 오류가 발생했습니다.</div>
 	<ul id="messageList_id"></ul>
-
+	
+	<ul>
+		<li th:each="messageItem: ${pageData.content}" th:text="|${messageItem.message}(${messageItem.id})|">
+	</ul>
+	
 	<nav aria-label="Page navigation">
 		<ul class="pagination">
 			<li class="page-item" th:classappend="${pageData.page == 1} ? 'disabled'">

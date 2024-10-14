@@ -25,7 +25,7 @@ public class MessageService {
 	
 	public PageDTO getPagedData(int page, int size) {
 		int offset = (page - 1) * size;
-        List<Message> content = messageMapper.getMessagesWithPaging(offset, size);
+        List<Message> content = messageMapper.getMessagesWithPaging(size, offset);
         int totalElements = messageMapper.countTotal();
         int totalPages = (int) Math.ceil((double) totalElements / size);
 
