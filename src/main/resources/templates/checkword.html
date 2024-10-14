@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>단어</title>
+</head>
+<body>
+	<div class="container">
+		<h1>메시지 작성</h1>
+		<form id="wordForm" th:action="@{/checkword}" method="get">
+			<label for="word">내용:</label>
+			<input type="text" id="word_id" name="word" required>
+			<button type="submit">메시지 입력</button>
+		</form>
+	</div>
+</body>
+</html>

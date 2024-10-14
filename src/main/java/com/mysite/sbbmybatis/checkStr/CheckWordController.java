@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mysite.sbbmybatis.Message;
@@ -27,5 +28,17 @@ public class CheckWordController {
 		boolean result = userWord.equals(dbWord);
 		
 		return result;
+	}
+	
+	@GetMapping("/form")
+	public String checkWordForm ( ) {
+		return "checkword";
+	}
+	
+	// get으로 요청된 값을 받을때는 @RequestParam을 사용
+	@GetMapping
+	@ResponseBody
+	public boolean checkWord2(@RequestParam("word") String userWord) {
+		return true;
 	}
 }
