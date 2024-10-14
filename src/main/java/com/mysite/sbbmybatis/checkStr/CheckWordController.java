@@ -35,7 +35,7 @@ public class CheckWordController {
 		return "checkword";
 	}
 	
-	// get으로 요청된 값을 받을때는 @RequestParam을 사용
+	// get으로 요청된 값을 받을때는 @RequestParam(input의 name값과 동일하게 작성)을 사용
 	@GetMapping
 	@ResponseBody
 	public boolean checkWord2(@RequestParam("word") String userWord) {
