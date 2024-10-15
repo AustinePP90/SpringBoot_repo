@@ -5,9 +5,15 @@
 <title>회원가입</title>
 </head>
 <body>
+	<h1>회원가입</h1>
 	<form action="/user/signup" method="post">
-		<input type="text" name="usrname"><br>
-		<input type="text" name="psw"><br>
+	<!-- <form action="/user/signupParam" method="post"> -->
+		<label for="usrname">아이디 : </label>
+		<input type="text" id="usrname" name="usrname"><br>
+		<label for="psw">비밀번호 : </label>
+		<input type="text" id="psw" name="psw"><br>
+		<label for="psw2">비밀번호 확인 : </label>
+		<input type="text" id="psw2" name="psw2"><br>
 		<button type="submit">회원가입</button>
 	</form>
 </body>

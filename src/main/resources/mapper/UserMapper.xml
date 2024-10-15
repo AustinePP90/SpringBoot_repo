@@ -4,4 +4,7 @@
 	<insert id="addUser" parameterType="com.mysite.sbbmybatis.user.User">
 		INSERT INTO users (usrname, psw) VALUES (#{usrname}, #{psw})
 	</insert>
+	<select id="getUserByUsrname" resultType="com.mysite.sbbmybatis.user.User">
+		SELECT id, usrname, psw, created_at, updated_at FROM users WHERE usrname = #{usrname}
+	</select>
 </mapper>

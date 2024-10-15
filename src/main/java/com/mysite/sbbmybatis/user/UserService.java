@@ -16,4 +16,16 @@ public class UserService {
 		user.setPsw(encPsw);
 		userMapper.addUser(user);
 	}
+	
+	public User getUser(User user) {
+		return userMapper.getUserByUsrname(user.getUsrname());
+	}
+	
+	public boolean checkUser(User user) {
+		// TODO null값 예외처리
+		// 사용자 확인
+		User member = getUser(user);
+		// 비밀번호 확인
+		return BCrypt.checkpw(user.getPsw(), member.getPsw());
+	}	
 }
