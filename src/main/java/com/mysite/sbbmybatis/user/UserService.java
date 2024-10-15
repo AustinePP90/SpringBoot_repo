@@ -1,5 +1,6 @@
 package com.mysite.sbbmybatis.user;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,8 @@ public class UserService {
 	// UserMapper userMapper = new UserMapper();
 
 	public void addUser(User user) {
+		String encPsw = BCrypt.hashpw(user.getPsw(), BCrypt.gensalt());
+		user.setPsw(encPsw);
 		userMapper.addUser(user);
 	}
 }
