@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mysite.sbbmybatis.users.UserMapper">
+	<select id="getUser" resultType="com.mysite.sbbmybatis.users.User">
+		SELECT * FROM users;
+	</select>
+	<select id="getUserById" resultType="com.mysite.sbbmybatis.users.User">
+		SELECT id, usrname, psw, created_at, updated_at FROM users WHERE id = #{id}
+	</select>
+	<insert id="signup" parameterType="com.mysite.sbbmybatis.users.User">
+		INSERT INTO users (usrname, psw) VALUES (#{usrname}, #{psw});
+	</insert>
+</mapper>
